@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  
+    <head>
+        <title>Teste de número na sequência de Fibonacci</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    
+    <body>
+        <label>Digite um número: </label>
+        <input type="number" id="numero" name="numero">
+        <button onclick="chkFibonacci()">Verificar</button>
+        <p id="resultado"></p>
+
+        <script>
+        function chkFibonacci() {
+            const numero = parseInt(document.getElementById("numero").value);
+            
+            if (isNaN(numero)) {
+                document.getElementById("resultado").textContent =
+                "Digite um número para verificar!"
+            
+            } else {
+
+                let a = 0;
+                let b = 1;
+                
+                while (b < numero) {
+                        const temp = b;
+                        b = a + b;
+                        a = temp;
+                    }
+                    
+                    if (b === numero) {
+                        document.getElementById("resultado").textContent =
+                        numero + " faz parte da sequência de Fibonacci.";
+                    } else {
+                        document.getElementById("resultado").textContent =
+                        numero + " não faz parte da sequência de Fibonacci.";
+                    }
+                }
+        }
+        </script>
+    </body>
+</html>
